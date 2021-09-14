@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Список всех долгов и платежей</title>
+</head>
+<body>
+    <h1>Список всех долгов и всех платежей</h1>
+    <div style="float: left;">
+        <h3>Долги</h3>
+        <table border="1">
+            {% for a in ac %}
+            <tr><td>{{a}}: {{a.date}}, месяц {{a.month}}</td></tr>
+            {% endfor %}
+        </table>
+    </div>
+    <div style="float: left; margin-left: 5%;">
+        <h3>Платежи</h3>
+        <table border="1">
+            {% for p in pa %}
+            <tr><td>{{p}}: {{p.date}}, месяц {{p.month}}</td></tr>
+            {% endfor %}
+        </table>
+    </div>
+    
+</body>
+</html>

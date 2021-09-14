@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Олпаченные долги</title>
+</head>
+<body>
+    <table border="1">
+     <h2>Таблица оплаченных долгов</h2>
+     <tr>
+      <th>Долг</th>
+      <th>Платеж</th>
+     </tr>
+         {% for p in paided %}
+         <tr><td>{{p.0}}: {{p.0.date}}, месяц {{p.0.month}}</td><td>{{p.1}}: {{p.1.date}}, месяц {{p.1.month}}</td></tr>
+         {% endfor %}
+    </table>
+</br>
+    <div style="float: left;">
+   <h3>Оставшиеся долги</h3>
+    {% if ac %}
+    <table border="1">
+        {% for a in ac %}
+        <tr><td>{{a}}: {{a.date}}, месяц {{a.month}}</td></tr>
+        {% endfor %}
+    </table>
+    {% else %}
+    <p>Нет оставшихся долгов</p>
+    {% endif %}
+    </div>
+    <div style="float: left; margin-left: 5%;">
+        <h3>Оставшиеся платежи</h3>
+         {% if pa %}
+            <table border="1">
+                {% for p in pa %}
+                <tr><td>{{p}}: {{p.date}}, месяц {{p.month}}</td></tr>
+                {% endfor %}
+            </table>
+         {% else %}
+         <p>Нет оставшихся платежей</p>
+         {% endif %}
+         </div>
+   </body>
+  </html>
